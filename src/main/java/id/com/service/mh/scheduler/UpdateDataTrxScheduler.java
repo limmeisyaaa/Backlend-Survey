@@ -30,7 +30,7 @@ public class UpdateDataTrxScheduler {
     @Value("${sql.update.trx.path}")
     private String updateTrxSQLPath;
 
-    @Scheduled(cron = "0 37 13 * * ?") // Every day at 23:59:00
+    @Scheduled(cron = "0 59 23 * * ?") // Every day at 23:59:00
     @Transactional
     public void scheduledUpdateTransactionDescriptions() {
         log.info("Starting scheduled transaction update at: {}", LocalDateTime.now());

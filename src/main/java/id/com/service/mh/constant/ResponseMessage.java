@@ -17,4 +17,5 @@ public class ResponseMessage {
     public static final String DELETE = "Data %s has been deleted";
     public static final String NOT_FOUND = "Data %s for NIK %s is not found";
     public static final String REGISTER = "Successfully create new %s";
+    public static final String UPLOAD = "Successfully upload data %s";
 }

@@ -1,7 +1,9 @@
 package id.com.service.mh.dto;
 
 import id.com.service.mh.entity.Customer;
+import id.com.service.mh.entity.Occupation;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CustomerDTO {
@@ -48,6 +50,35 @@ public class CustomerDTO {
         this.province = customer.getProvince();
         this.postalCode = customer.getPostalCode();
         this.occupationType = customer.getOccupationType().getOccupation();
+    }
+
+    public static Customer createCustomer(String[] data) {
+        Customer customer = new Customer();
+        customer.setNik(data[0]);
+        customer.setEmail(data[1]);
+        customer.setFullName(data[2]);
+        customer.setBirthPlace(data[3]);
+
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); // adjust format as needed
+            customer.setBirthDate(dateFormat.parse(data[4]));
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid date format: " + data[4]);
+        }
+
+        customer.setGender(data[5]);
+        customer.setMaritalStatus(data[6]);
+        customer.setReligion(data[7]);
+        customer.setPhoneNumber(data[8]);
+        customer.setAddress(data[9]);
+        customer.setRt(data[10]);
+        customer.setRw(data[11]);
+        customer.setWard(data[12]);
+        customer.setDistrict(data[13]);
+        customer.setCity(data[14]);
+        customer.setProvince(data[15]);
+        customer.setPostalCode(data[16]);
+        return customer;
     }
 
     public String getCustomerId() {
